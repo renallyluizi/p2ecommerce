@@ -7,10 +7,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.unifacisa.ecommerce.dto.ProductDto;
 import br.edu.unifacisa.ecommerce.model.Category;
 import br.edu.unifacisa.ecommerce.model.Product;
 import br.edu.unifacisa.ecommerce.repository.ProductRepository;
-import dto.ProductDto;
 
 @Service
 public class ProductService {

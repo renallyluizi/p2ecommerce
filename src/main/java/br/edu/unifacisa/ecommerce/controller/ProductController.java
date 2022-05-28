@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.unifacisa.ecommerce.comnon.ApiResponse;
+import br.edu.unifacisa.ecommerce.dto.ProductDto;
 import br.edu.unifacisa.ecommerce.model.Category;
 import br.edu.unifacisa.ecommerce.repository.CategoryRepository;
 import br.edu.unifacisa.ecommerce.sevice.ProductService;
-import dto.ProductDto;
 
 @RestController
 @RequestMapping("/product")

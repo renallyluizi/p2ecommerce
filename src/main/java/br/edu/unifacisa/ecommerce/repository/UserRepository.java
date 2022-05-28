@@ -8,4 +8,5 @@ import br.edu.unifacisa.ecommerce.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+	boolean findByEmail(String email);
 }

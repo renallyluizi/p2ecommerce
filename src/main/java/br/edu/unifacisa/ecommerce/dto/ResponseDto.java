@@ -1,4 +1,4 @@
-package dto;
+package br.edu.unifacisa.ecommerce.dto;
 
 public class ResponseDto {
 

@@ -1,4 +1,5 @@
-package dto;
+package br.edu.unifacisa.ecommerce.dto;
+
 
 import javax.validation.constraints.NotNull;
 

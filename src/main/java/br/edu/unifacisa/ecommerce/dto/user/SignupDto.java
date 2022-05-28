@@ -1,4 +1,5 @@
-package dto;
+package br.edu.unifacisa.ecommerce.dto.user;
+
 
 public class SignupDto {
 

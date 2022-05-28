@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.unifacisa.ecommerce.dto.ResponseDto;
+import br.edu.unifacisa.ecommerce.dto.user.SignupDto;
 import br.edu.unifacisa.ecommerce.sevice.UserService;
-import dto.ResponseDto;
-import dto.SignupDto;
 
 @RequestMapping("user")
 @RestController
