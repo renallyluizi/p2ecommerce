@@ -14,4 +14,9 @@ public class ExceptionControllerAdvice {
 		
 	}
 	
+	@ExceptionHandler(value = AuthenticationFailException.class)
+	public final ResponseEntity<String> handleAuthenticationFailException(AuthenticationFailException exception){
+		return null;
+		
+	}
 }

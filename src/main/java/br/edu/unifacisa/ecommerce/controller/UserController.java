@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.unifacisa.ecommerce.dto.ResponseDto;
+import br.edu.unifacisa.ecommerce.dto.user.SignInDto;
+import br.edu.unifacisa.ecommerce.dto.user.SignInResponseDto;
 import br.edu.unifacisa.ecommerce.dto.user.SignupDto;
 import br.edu.unifacisa.ecommerce.sevice.UserService;
 
@@ -20,6 +22,11 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseDto signup(@RequestBody SignupDto signupDto) {
 		return userService.signUp(signupDto);
+	}
+	
+	@PostMapping("/signin")
+	public SignInResponseDto signIn(@RequestBody SignInDto signInDto) {
+		return userService.signIn(signInDto);
 	}
 	
 	

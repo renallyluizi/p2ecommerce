@@ -1,6 +1,7 @@
 package br.edu.unifacisa.ecommerce.model;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +32,15 @@ public class AuthenticationToken {
     private User user;
 
 	
-    public Integer getId() {
+   
+
+	public AuthenticationToken(User user2) {
+		this.user = user;
+		this.createdDate = new Date();
+		this.token = UUID.randomUUID().toString();
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
