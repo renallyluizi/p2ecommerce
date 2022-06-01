@@ -57,7 +57,7 @@ public class UserService {
 		
 		authenticationService.saveConfirmationToken(authenticationToken);
 		
-		ResponseDto responseDto = new ResponseDto("success", " response");
+		ResponseDto responseDto = new ResponseDto("success", " user created successfully");
 		return responseDto;
 	}
 
