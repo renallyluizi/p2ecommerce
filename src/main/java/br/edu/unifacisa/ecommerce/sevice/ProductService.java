@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.unifacisa.ecommerce.dto.ProductDto;
+import br.edu.unifacisa.ecommerce.exceptions.ProductNotExistException;
 import br.edu.unifacisa.ecommerce.model.Category;
 import br.edu.unifacisa.ecommerce.model.Product;
 import br.edu.unifacisa.ecommerce.repository.ProductRepository;
@@ -62,5 +63,16 @@ public class ProductService {
         productDto.setName(productDto.getName());
         productRepository.save(product);
 	}
+
+	public Product getProductById(Long productId) throws ProductNotExistException {
+		Optional<Product> optionalProduct = productRepository.findById(productId);
+		if (!optionalProduct.isPresent() )
+			throw new ProductNotExistException("Product id is invalid " + productId);
+		
+		// TODO Auto-generated method stub
+		return optionalProduct.get();
+	}
+	
+	
 	
 }

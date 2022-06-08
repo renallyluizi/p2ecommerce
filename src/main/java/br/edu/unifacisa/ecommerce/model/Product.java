@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity 
 @Table(name = "products")
 public class Product {
@@ -25,8 +27,8 @@ public class Product {
 //relacão n,1
 
 	@ManyToOne
-
-	@JoinColumn
+	@JsonIgnore
+	@JoinColumn(name="category_id")
 	Category category;
 	
 	public Integer getId() {

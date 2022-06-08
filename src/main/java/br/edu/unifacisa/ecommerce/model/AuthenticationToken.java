@@ -31,8 +31,6 @@ public class AuthenticationToken {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
-	
-   
 
 	public AuthenticationToken(User user2) {
 		this.user = user;

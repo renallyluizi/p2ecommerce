@@ -43,6 +43,12 @@ public class WishList {
 		this.product = product;
 	}
 
+	public WishList( User user, Product product) {
+		this.user = user;
+		this.product = product;
+		this.createdDate = new Date();
+	}
+	
 	public Integer getId() {
 		return id;
 	}

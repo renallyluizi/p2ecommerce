@@ -1,43 +1,52 @@
 package br.edu.unifacisa.ecommerce.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.edu.unifacisa.ecommerce.enums.Role;
 
 @Entity
 @Table(name = "users")
-public class User {
-    
+public class User implements Serializable {
+
+	
+	private static final long serialVersionUID = 8536845054573280488L;
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    @Column(name = "first_name")
-    private String firstName;
+	@Column(name = "first_name")
+	private String firstName;
 
-    @Column(name = "last_name")
-    private String lastName;
+	@Column(name = "last_name")
+	private String lastName;
 
-    @Column(name = "email")
-    private String email;
+	@Column(name = "email")
+	private String email;
 
-    @Column(name = "password")
-    private String password;
+	@Enumerated(EnumType.STRING)
+	@Column(name = "role")
+	private Role role;
 
-     
-    public User(String firstName, String lastName, String email, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-    }
+	@Column(name = "password")
+	private String password;
 
-
-	public User() {
-    }
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//	private List<Order> orders;
 
 	public Integer getId() {
 		return id;
@@ -71,12 +80,31 @@ public class User {
 		this.email = email;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public User(String firstName, String lastName, String email, Role role, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.role = role;
+		this.password = password;
+	}
+
+	public User() {
 	}
 
 }
