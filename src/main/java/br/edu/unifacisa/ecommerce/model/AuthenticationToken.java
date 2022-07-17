@@ -32,7 +32,7 @@ public class AuthenticationToken {
     private User user;
 
 
-	public AuthenticationToken(User user2) {
+	public AuthenticationToken(User user) {
 		this.user = user;
 		this.createdDate = new Date();
 		this.token = UUID.randomUUID().toString();
