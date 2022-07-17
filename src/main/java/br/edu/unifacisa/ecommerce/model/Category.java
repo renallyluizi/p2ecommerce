@@ -1,15 +1,20 @@
 package br.edu.unifacisa.ecommerce.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "categories") 
+@Table(name = "categories")
 public class Category {
 
 	@Id
@@ -21,18 +26,19 @@ public class Category {
 
 	private @NotBlank String description;
 
-	@Column(name = "image_url")
 	private @NotBlank String imageUrl;
-	
+
+	@OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	Set<Product> products;
 
 	public Category() {
 	}
-	
+
 	public Category(@NotBlank String categoryName, @NotBlank String description) {
 		this.categoryName = categoryName;
 		this.description = description;
 	}
-	
+
 	public Category(@NotBlank String categoryName, @NotBlank String description, @NotBlank String imageUrl) {
 		this.categoryName = categoryName;
 		this.description = description;
@@ -54,7 +60,7 @@ public class Category {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "User {category id=" + id + ", category name='" + categoryName + "', description='" + description + "'}";
@@ -75,6 +81,5 @@ public class Category {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-		
-	
+
 }
